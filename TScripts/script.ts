@@ -1,12 +1,12 @@
 // declaring a variable of a certain type
-let foo: number = 123;
+export let foo: number = 123;
 let text: string = 'hello there';
 let typescriptIsUseful: boolean = true;
 
-// if you try to redefine the value of some variable and this value has a different type, typecript will report you an error:
+// if you try to change the value of some variable for a different type, typescript will report you an error:
 // foo = '123';  //example
 
-// DEFINING objects structures
+// DEFINING object structures
 // we use the property called INTERFACE to define the types of the object's keys to use it later for other objects:
 interface form {
   name: string,
@@ -16,12 +16,12 @@ interface form {
   occupation: string,
 }
 
-let firstEmployee: form = { // if the structure doesn't correspond to the interface scructure, typecript will report you an error
+let firstEmployee: form = { // if the structure doesn't correspond with the interface declared before, typecript will report you an error
   name: 'Bruno',
   age: 20,
   telephoneNumber: 12345789,
   adress: 'Hogwarts',
-  occupation: 'Front-end developer', // try to comment this line to see the error with more details
+  occupation: 'Front-end developer', // try to comment this line to see the error with more detail
 }
 
 // defining a class with typescript
@@ -40,7 +40,7 @@ class rectangle {
 const square = new rectangle(10, 10);
 console.log(`square area: ${square.area()}`);
 
-// classes can be inherit using the extends property in the declaration of the class
+// classes can be inherit using the extends property in his declaration
 
 class triangle extends rectangle {
   constructor(width: number, height: number) {
@@ -53,4 +53,8 @@ class triangle extends rectangle {
 
 const myTriangle = new triangle(3, 4);
 
-console.log(`triangle hipotenuse: ${myTriangle.hypotenuse()} and the triangle area: ${myTriangle.area()}`)
+console.log(`triangle hypotenuse: ${myTriangle.hypotenuse()} and the triangle area: ${myTriangle.area()}`)
+
+import { myKey } from './myAnotherScript';
+
+console.log(myKey);

@@ -1,4 +1,4 @@
-let foo = 123;
+export let foo = 123;
 let text = 'hello there';
 let typescriptIsUseful = true;
 let firstEmployee = {
@@ -25,4 +25,6 @@ class triangle extends rectangle {
     }
 }
 const myTriangle = new triangle(3, 4);
-console.log(`triangle hipotenuse: ${myTriangle.hypotenuse()} and the triangle area: ${myTriangle.area()}`);
+console.log(`triangle hypotenuse: ${myTriangle.hypotenuse()} and the triangle area: ${myTriangle.area()}`);
+import { myKey } from './myAnotherScript';
+console.log(myKey);

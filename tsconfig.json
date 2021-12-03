@@ -3,6 +3,6 @@
     "target": "ES2015",
     "outDir": "./script/",
     "removeComments": true,
-    "rootDir": "./",
+    "rootDir": "./TScripts",
   }
 }
