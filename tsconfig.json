@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "es6",
     "outDir": "./script/",
     "removeComments": true,
     "rootDir": "./TScripts",
