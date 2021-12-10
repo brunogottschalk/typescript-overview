@@ -16,4 +16,4 @@ console.log(calculator('sum', 2, 5, 6, 1, 2, 1));
 function displayMessage({ text, sender }) {
     return (`Message: ${text}, sender: ${sender}`);
 }
-console.log(displayMessage({ sender: 'Bruno Gottschalk Roque', text: "Hello there, what's going on?" }));
+console.log(displayMessage({ sender: 'Bruno Gottschalk Roque', text: "Hello there" }));

@@ -28,14 +28,14 @@ const calculator: Calculator = (operator: 'sum' | 'sub', ...numbers: number[]): 
 
 console.log(calculator('sum', 2, 5, 6, 1, 2, 1));
 
-// that's an example of how can be passed optional arguments without be in order for a created function
+// that's an example of how optional arguments can be passed without be in order for a created function
 interface Message {
   text: string,
   sender?: string,
 }
-
+// to fix this, just make an object with all the optional properties inside it
 function displayMessage({ text, sender } : Message) : string {
   return (`Message: ${text}, sender: ${sender}`)
 }
 
-console.log(displayMessage({ sender: 'Bruno Gottschalk Roque', text: "Hello there, what's going on?" }));
+console.log(displayMessage({ sender: 'Bruno Gottschalk Roque', text: "Hello there" }));
