@@ -66,7 +66,7 @@ class ElectricCar extends Car {
         return this._range;
     }
     set range(range) {
-        this._range = range;
+        this._range = range + 1;
     }
     charge() {
         console.log(`${this.worker()} is charging.`);
@@ -80,3 +80,5 @@ const eCar = new ElectricCar('Electric Car Co.', 'black', 263);
 console.log("eCar's doors: ", eCar.doors);
 spark.charge();
 console.log(spark.brake());
+eCar.range = 52;
+console.log(eCar.range);
