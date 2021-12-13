@@ -35,3 +35,71 @@ let returnBoolean = identity<boolean, string> (true, 'Bonjour!');
 returnNumber = returnNumber * 100;
 // returnString = returnString * 100; // Error: Type 'number' not assignable to type 'string'
 // returnBoolean = returnBoolean * 100; // Error: Type 'number' not assignable to type 'boolean'
+
+type ValidTypes = string | number;
+
+function newIdentity<T extends ValidTypes, U>(value: T, message: U) {
+    let result: ValidTypes = '';
+    let typeValue: string = typeof value;
+    
+    if (typeof value === 'number') {
+        result = value + value;
+    } else if (typeof value === 'string') {
+        result = value + value;
+    }
+    console.log(`The message is ${message} and the function returns a ${typeValue} value of ${result}`);
+    return result;
+}
+
+let numberValue = newIdentity<number, string>(100, 'Hello');
+let stringValue = newIdentity<string, string>('100', 'Hello');
+
+interface Identity<T extends ValidTypes, U> {
+    value: T,
+    message: U,
+}
+
+let identityReturnNumber: Identity<number, string> = {
+    value: 25,
+    message: 'Hello',
+} 
+
+let identityReturnString: Identity<string, number> = {
+    value: 'Hello',
+    message: 25,
+}
+
+interface ProcessIdentity<T extends ValidTypes, U> {
+    (value: T, message: U): T;
+}
+
+function processIdentity<T, U> (value: T, message: U): T {
+    console.log(message);
+    return value;
+}
+
+const processor: ProcessIdentity<string, string> = processIdentity; // function type check
+const returnString1 = processor('25', 'Hello');
+
+interface ProcessIdentityClass<T, U> {
+    value: T,
+    message: U,
+    process(): T,
+}
+
+class processIdentityClass<X, Y> implements ProcessIdentityClass<X, Y> {
+    value: X;
+    message: Y;
+    constructor(val: X, msg: Y) {
+        this.value = val;
+        this.message = msg;
+    }
+    process(): X {
+        console.log(this.message);
+        return this.value;
+    }
+}
+
+const newProcessor = new processIdentityClass<number, string>(100, 'Hello');
+newProcessor.process();
+newProcessor.value = 100;
